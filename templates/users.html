@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Users Management</title>
+
+    <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        {% include 'sidebar.html' %}
+
+        <main class="content">
+
+            <h1>Users Management</h1>
+
+            <input type="text" id="searchUser" placeholder="Search User..." onkeyup="searchUsers()">
+
+            <br><br>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Pass ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Mobile</th>
+                            <th>Route</th>
+                            <th>Validity</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="userTable"></tbody>
+
+
+                </table>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="/static/js/users.js"></script>
+
+</body>
+
+</html>

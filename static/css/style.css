@@ -1,0 +1,512 @@
+
+/* =====================================================
+   GLOBAL STYLES
+===================================================== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{background:#f8fafc;color:#1e293b}
+input,select,textarea{
+width:100%;padding:12px;border:1px solid #d1d5db;border-radius:8px
+}
+button{
+background:#2563eb;color:#fff;border:none;padding:12px 20px;
+border-radius:8px;cursor:pointer
+}
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+.navbar{
+display:flex;justify-content:space-between;align-items:center;
+padding:18px 60px;background:#fff;
+box-shadow:0 2px 10px rgba(0,0,0,.08)
+}
+.logo{font-size:24px;font-weight:700;color:#1d4ed8}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{text-decoration:none;color:#334155;font-weight:600}
+
+/* =====================================================
+   HOME PAGE
+===================================================== */
+.hero{
+background:linear-gradient(135deg,#1d4ed8,#2563eb);
+color:#fff;text-align:center;padding:120px 20px
+}
+.features,.how-it-works{padding:80px 40px}
+.feature-grid,.steps{
+display:grid;grid-template-columns:repeat(4,1fr);gap:25px
+}
+.feature-card,.step,.card,.fare-card{
+background:#fff;border-radius:16px;
+box-shadow:0 2px 10px rgba(0,0,0,.08);padding:25px
+}
+
+/* =====================================================
+   APPLY PASS PAGE
+===================================================== */
+.apply-container{width:90%;max-width:1200px;margin:40px auto}
+.top-grid{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+
+/* =====================================================
+   TRACK PASS PAGE
+===================================================== */
+.track-container{max-width:900px;margin:50px auto;text-align:center}
+.track-card{
+background:#fff;padding:25px;border-radius:16px;
+display:flex;gap:15px
+}
+.tracking-result,.result-card{
+background:#fff;border-radius:15px;padding:25px;
+box-shadow:0 2px 10px rgba(0,0,0,.08)
+}
+
+/* =====================================================
+   VERIFY PASS PAGE
+===================================================== */
+.verify-container{max-width:900px;margin:50px auto;text-align:center}
+.verify-card{
+background:#fff;padding:20px;border-radius:15px;
+display:flex;gap:15px
+}
+.verify-success{
+background:#f0fff4;border:1px solid #86efac;
+padding:25px;border-radius:12px
+}
+
+/* =====================================================
+   CONTACT PAGE
+===================================================== */
+.contact-container{max-width:1100px;margin:50px auto;padding:20px}
+.contact-grid{
+display:grid;grid-template-columns:1fr 2fr;gap:25px
+}
+
+/* =====================================================
+   ADMIN DASHBOARD
+===================================================== */
+.dashboard-container{display:flex;min-height:100vh}
+.sidebar{width:250px;background:#fff;border-right:1px solid #e5e7eb}
+.content{flex:1;padding:35px}
+.stats-grid,.status-grid{
+display:grid;grid-template-columns:repeat(4,1fr);gap:20px
+}
+
+/* =====================================================
+   PASS MANAGEMENT
+===================================================== */
+.table-container{
+background:#fff;border-radius:16px;overflow:hidden
+}
+table{width:100%;border-collapse:collapse}
+
+
+/* ==========================================
+   LOGIN PAGE
+========================================== */
+
+.login-page{
+    min-height:100vh;
+    background:#f4f7fc;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.login-card{
+    width:100%;
+    max-width:600px;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    border:1px solid #e5e7eb;
+}
+
+.login-icon{
+    width:90px;
+    height:90px;
+    margin:0 auto 25px;
+    background:#e8efff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:42px;
+}
+
+.login-card h1{
+    text-align:center;
+    color:#0f172a;
+    margin-bottom:15px;
+    font-size:42px;
+}
+
+.login-subtitle{
+    text-align:center;
+    color:#64748b;
+    font-size:20px;
+    margin-bottom:40px;
+}
+
+.form-group{
+    margin-bottom:25px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:10px;
+    font-weight:600;
+    color:#1e293b;
+    font-size:18px;
+}
+
+.form-group input{
+    width:100%;
+    padding:16px;
+    border:2px solid #dbeafe;
+    border-radius:12px;
+    font-size:18px;
+    outline:none;
+}
+
+.form-group input:focus{
+    border-color:#2563eb;
+}
+
+.login-btn{
+    width:100%;
+    padding:18px;
+    background:#1d4ed8;
+    color:white;
+    border:none;
+    border-radius:12px;
+    font-size:22px;
+    font-weight:600;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.login-btn:hover{
+    background:#1e40af;
+}
+
+/* =====================================================
+   SETTINGS PAGE
+===================================================== */
+.settings-container{max-width:900px;margin:0 auto}
+.settings-card{
+background:#fff;padding:30px;border-radius:16px
+}
+.settings-group{margin-bottom:20px}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.footer{
+    background:#ffffff;
+    border-top:1px solid #dbe3ef;
+    padding:25px 20px;
+    margin-top:50px;
+}
+
+.footer-content{
+    max-width:1200px;
+    margin:auto;
+}
+
+.footer-content h3{
+    font-size:18px;
+    font-weight:700;
+    color:#0f172a;
+    margin-bottom:5px;
+}
+
+.footer-tagline{
+    color:#334155;
+    font-size:16px;
+    margin-bottom:10px;
+}
+
+.footer-contact{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    color:#1e293b;
+    font-size:15px;
+    margin-bottom:8px;
+}
+
+.footer-copy{
+    color:#0f172a;
+    font-size:14px;
+}
+
+@media(max-width:768px){
+
+    .footer-contact{
+        flex-direction:column;
+        gap:5px;
+    }
+
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+===================================================== */
+@media(max-width:768px){
+.navbar{flex-direction:column;padding:20px}
+.top-grid,.contact-grid,.grid-2,.feature-grid,.steps,
+.stats-grid,.status-grid{grid-template-columns:1fr}
+.track-card,.verify-card{flex-direction:column}
+}
+
+/* ==========================
+   SIDEBAR
+========================== */
+
+.sidebar{
+    width:300px;
+    position:fixed;
+    left:0;
+    top:0;
+    height:100vh;
+    background:#fff;
+    border-right:1px solid #e5e7eb;
+}
+
+.sidebar-header{
+    padding:25px 20px;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.sidebar-header h2{
+    color:#1d4ed8;
+    font-size:28px;
+    font-weight:700;
+}
+
+.sidebar-menu{
+    list-style:none;
+    padding:15px 10px;
+    flex:1;
+}
+
+.sidebar-menu li{
+    margin-bottom:8px;
+}
+
+.sidebar-menu li a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:#64748b;
+    padding:14px 18px;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.content{
+    margin-left:300px;   /* same as sidebar width */
+    padding:30px;
+}
+
+.sidebar-menu li a:hover{
+    background:#eff6ff;
+    color:#1d4ed8;
+}
+
+.sidebar-menu li.active a{
+    background:#1d4ed8;
+    color:white;
+}
+
+.sidebar-footer{
+    padding:20px;
+    border-top:1px solid #e5e7eb;
+}
+
+.logout-section{
+    margin-top:auto;
+    padding:20px;
+    border-top:1px solid #e5e7eb;
+}
+
+.logout-btn{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:#ef4444;
+    font-weight:600;
+    font-size:16px;
+}
+
+.logout-btn:hover{
+    color:#dc2626;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;   /* Center horizontally */
+    align-items:center;
+    gap:20px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn-primary,
+.btn-secondary{
+    text-decoration:none;
+    padding:18px 40px;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-width:230px;
+}
+
+.btn-primary{
+    background:white;
+    color:#1d4ed8;
+}
+
+.btn-primary span{
+    margin-left:12px;
+    font-size:24px;
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    border:2px solid white;
+    color:white;
+    background:transparent;
+}
+
+.btn-secondary:hover{
+    background:white;
+    color:#1d4ed8;
+}
+
+.stats-section{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+    margin:60px auto;
+    max-width:1200px;
+    padding:0 20px;
+}
+
+.stat-card{
+    background:#ffffff;
+    border-radius:16px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    transition:.3s;
+}
+
+.stat-card:hover{
+    transform:translateY(-5px);
+}
+
+.stat-card h2{
+    font-size:42px;
+    color:#1d4ed8;
+    margin-bottom:10px;
+    font-weight:700;
+}
+
+.stat-card p{
+    color:#64748b;
+    font-size:18px;
+    font-weight:500;
+}
+
+@media(max-width:768px){
+    .stats-section{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:500px){
+    .stats-section{
+        grid-template-columns:1fr;
+    }
+}
+
+.track-container{
+    max-width:900px;
+    margin:40px auto;
+    padding:20px;
+}
+
+.track-container h1{
+    text-align:center;
+    color:#1a2b49;
+}
+
+.track-subtitle{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.track-search{
+    display:flex;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.track-search input{
+    flex:1;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:16px;
+}
+
+.track-search button{
+    padding:14px 30px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.tracking-result{
+    background:#fff;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,.1);
+    padding:25px;
+    text-align:left;
+    max-width:500px;
+    margin:auto;
+}
+
+.tracking-result h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#1a2b49;
+}
+
+.tracking-result p{
+    margin:10px 0;
+    font-size:16px;
+}
+
+.tracking-result img{
+    display:block;
+    margin:20px auto 0;
+    width:220px;
+}

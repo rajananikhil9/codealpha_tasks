@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Pass Management</title>
+
+    <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    {% include 'sidebar.html' %}
+
+    <main class="content">
+
+        <h1>Pass Management</h1>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by Pass ID or Name"
+            onkeyup="searchPasses()"
+        >
+
+        <br><br>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Pass ID</th>
+                        <th>Name</th>
+                        <th>Route</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>QR</th>
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="passTable"></tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="/static/js/passes.js"></script>
+
+</body>
+</html>
+

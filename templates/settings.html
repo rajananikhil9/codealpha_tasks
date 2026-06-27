@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>System Settings</title>
+
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+
+  <body>
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+
+      {% include 'sidebar.html' %}
+
+      <!-- Main Content -->
+
+      <main class="content">
+        <div class="settings-container">
+          <div class="settings-card">
+            <h2>System Settings</h2>
+
+            <div class="settings-group">
+              <label>Website Name</label>
+              <input type="text" id="siteName" />
+            </div>
+
+            <div class="settings-group">
+              <label>Phone</label>
+              <input type="text" id="phone" />
+            </div>
+
+            <div class="settings-group">
+              <label>Email</label>
+              <input type="email" id="email" />
+            </div>
+
+            <div class="settings-group">
+              <label>Address</label>
+              <textarea id="address"></textarea>
+            </div>
+
+            <div class="settings-group">
+              <label>Homepage Banner</label>
+              <textarea id="banner"></textarea>
+            </div>
+
+            <div class="settings-group">
+              <label>Footer Text</label>
+              <textarea id="footer"></textarea>
+            </div>
+
+            <button class="settings-save-btn" onclick="saveSettings()">
+              Save Settings
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="/static/js/settings.js"></script>
+  </body>
+</html>

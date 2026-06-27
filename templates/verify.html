@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Verify Pass</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="logo">🚌 Cloud Bus Pass</div>
+
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/apply">Apply Pass</a></li>
+        <li><a href="/track">Track Pass</a></li>
+        <li><a href="/verify">Verify Pass</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/login">Admin Login</a></li>
+      </ul>
+    </nav>
+
+    <div class="verify-container">
+      <div class="verify-icon">🛡️</div>
+
+      <h1>Official Pass Verification</h1>
+
+      <p class="verify-subtitle">
+        For transit officers and inspectors. Enter the Pass ID to verify
+        authenticity and current status.
+      </p>
+
+      <div class="verify-card">
+        <input
+          type="text"
+          id="verifyInput"
+          placeholder="Enter Pass ID to verify"
+        />
+
+        <button onclick="verifyPass()">Verify</button>
+      </div>
+
+      <div id="verifyResult"></div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+<footer class="footer">
+      <div class="footer-content">
+        <h3>Cloud Bus Pass System</h3>
+
+        <p class="footer-tagline">
+          Secure Digital Transit Pass Management Platform
+        </p>
+
+        <div class="footer-contact">
+          <span>📞 9556306160</span>
+          <span>|</span>
+          <span>✉ support@cloudbuspass.com</span>
+        </div>
+
+        <p class="footer-copy">© 2026 Cloud Bus Pass System</p>
+      </div>
+    </footer>
+  </body>
+</html>

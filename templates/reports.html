@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Reports & Analytics</title>
+
+    <link rel="stylesheet" href="/static/css/style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    {% include 'sidebar.html' %}
+
+    <main class="content">
+
+        <h1>Reports & Analytics</h1>
+
+        <div class="stats-grid">
+
+            <div class="card">
+                <h4>Total Revenue</h4>
+                <h2 id="reportRevenue">₹0</h2>
+            </div>
+
+            <div class="card">
+                <h4>Total Passes</h4>
+                <h2 id="reportPasses">0</h2>
+            </div>
+
+            <div class="card">
+                <h4>Active Passes</h4>
+                <h2 id="reportActive">0</h2>
+            </div>
+
+            <div class="card">
+                <h4>Routes</h4>
+                <h2 id="reportRoutes">0</h2>
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="chart-box">
+            <canvas id="monthlyRevenue"></canvas>
+        </div>
+
+        <br>
+
+        <div class="chart-box">
+            <canvas id="routeChart"></canvas>
+        </div>
+
+        <br>
+
+        <button onclick="exportPDF()">
+            Export PDF
+        </button>
+
+        <button onclick="exportExcel()">
+            Export Excel
+        </button>
+
+    </main>
+
+</div>
+
+<script src="/static/js/reports.js"></script>
+
+
+</body>
+</html>
+
