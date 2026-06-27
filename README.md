@@ -142,7 +142,7 @@ http://127.0.0.1:5000
 
 ## 👨‍💻 Developed By
 
-**Nikhil Rajana**
+**Rajana Nikhil**
 
 CodeAlpha Internship Project
 
