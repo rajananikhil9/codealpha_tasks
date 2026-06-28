@@ -1,112 +1,102 @@
-# 🚌 CodeAlpha - Cloud-Based Bus Pass System
+# CodeAlpha Data Redundancy Removal System
 
-## 📌 Project Overview
+## Overview
 
-The **Cloud-Based Bus Pass System** is a web application developed as part of the **CodeAlpha Internship**. It enables passengers to apply for bus passes online, track application status, verify passes using QR codes, and allows administrators to manage all pass-related operations through a dashboard.
+The **Cloud-Based Data Redundancy Removal System** is a web application developed using **Python Flask** and **AWS DynamoDB**. It helps identify duplicate records and false-positive entries before storing data, ensuring a clean and consistent database.
 
----
-
-## 🚀 Features
-
-### User Features
-
-* Apply for a new bus pass
-* Online application form
-* Generate QR Code for each pass
-* Track application status
-* Verify bus pass
-* Responsive user interface
-
-### Admin Features
-
-* Secure Admin Login
-* Dashboard with statistics
-* Manage Bus Passes
-* View User Inquiries
-* Route Management
-* Reports
-* User Management
-* Settings Panel
+This project was developed as part of the **CodeAlpha Internship Program**.
 
 ---
 
-## 🛠️ Technologies Used
+## Features
 
-### Frontend
-
-* HTML5
-* CSS3
-* JavaScript
-
-### Backend
-
-* Python
-* Flask
-
-### Database
-
-* SQLite
-
-### Other Libraries
-
-* QR Code Generator
-* Flask
-* SQLite3
+* Admin Login Authentication (JWT)
+* Add New Records
+* Input Validation
+* Data Normalization
+* Duplicate Email Detection
+* False Positive Detection using Similarity Matching
+* AWS DynamoDB Integration
+* Dashboard Statistics
+* View All Records
+* Search Records
+* View Duplicate & False Positive Records
+* Responsive Admin Dashboard
 
 ---
 
-## 📁 Project Structure
+## Technology Stack
 
-```
-CodeAlpha_Cloud_Based_Bus_Pass_System/
+* **Frontend:** HTML5, CSS3, JavaScript
+* **Backend:** Python Flask
+* **Database:** AWS DynamoDB
+* **Authentication:** Flask-JWT-Extended (JWT)
+* **Cloud Platform:** Amazon Web Services (AWS)
+
+---
+
+## Project Structure
+
+```text
+CodeAlpha_Data_Redundancy_Removal_System/
 │
-├── app.py
-├── lambda_function.py
+├── routes/
+│   ├── auth.py
+│   └── records.py
+│
+├── services/
+│   ├── validator.py
+│   ├── normalizer.py
+│   └── similarity_checker.py
+│
 ├── static/
 │   ├── css/
 │   └── js/
+│
 ├── templates/
-│   ├── index.html
-│   ├── apply.html
-│   ├── track.html
-│   ├── verify.html
-│   ├── admin.html
+│   ├── login.html
 │   ├── dashboard.html
-│   └── ...
-├── qr_codes/
-├── database.db
+│   ├── add_record.html
+│   ├── records.html
+│   └── duplicates.html
+│
+├── app.py
+├── config.py
+├── dynamodb.py
+├── jwt_auth.py
+├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## ⚙️ Installation
+## Installation
 
-1. Clone the repository
+Clone the repository:
 
 ```bash
 git clone https://github.com/rajananikhil9/codealpha_tasks.git
 ```
 
-2. Navigate to the project
+Go to the project folder:
 
 ```bash
-cd CodeAlpha_Cloud_Based_Bus_Pass_System
+cd CodeAlpha_Data_Redundancy_Removal_System
 ```
 
-3. Install dependencies
+Install dependencies:
 
 ```bash
-pip install flask qrcode pillow
+pip install -r requirements.txt
 ```
 
-4. Run the application
+Run the application:
 
 ```bash
 python app.py
 ```
 
-5. Open your browser
+Open your browser:
 
 ```
 http://127.0.0.1:5000
@@ -114,40 +104,64 @@ http://127.0.0.1:5000
 
 ---
 
-## 📸 Modules
+## AWS DynamoDB Tables
 
-* Home
-* Apply Bus Pass
-* Track Application
-* Verify Pass
-* Admin Login
-* Dashboard
-* Manage Passes
-* Reports
-* User Management
-* Route Management
-* Settings
+### DataRecords
 
----
+Stores all unique records.
 
-## 🎯 Objectives
+Partition Key:
 
-* Digitize the bus pass application process.
-* Reduce paperwork.
-* Provide secure QR-based verification.
-* Enable efficient pass management.
-* Improve user convenience through online services.
+```
+email (String)
+```
+
+### RejectedRecords
+
+Stores duplicate and false-positive records.
+
+Partition Key:
+
+```
+email (String)
+```
 
 ---
 
-## 👨‍💻 Developed By
+## System Workflow
 
-**Rajana Nikhil**
-
-CodeAlpha Internship Project
+1. User logs in.
+2. User submits a new record.
+3. Input is validated.
+4. Data is normalized.
+5. Duplicate email is checked.
+6. Similarity matching detects false positives.
+7. Unique records are stored in **DataRecords**.
+8. Duplicate and false-positive records are stored in **RejectedRecords**.
+9. Dashboard statistics update automatically.
 
 ---
 
-## 📄 License
+## Future Enhancements
 
-This project is developed for educational and internship purposes under the CodeAlpha Internship Program.
+* Email Notifications
+* PDF Report Generation
+* CSV Export
+* Advanced Search Filters
+* Role-Based Access Control
+* Data Analytics Dashboard
+* Cloud Deployment (AWS EC2 / Elastic Beanstalk)
+
+---
+
+## Author
+
+**Nikhil Rajana**
+
+GitHub: https://github.com/rajananikhil9
+
+---
+
+## License
+
+This project was developed for educational purposes as part of the **CodeAlpha Internship Program**.
