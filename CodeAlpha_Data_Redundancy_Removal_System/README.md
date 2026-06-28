@@ -156,7 +156,7 @@ email (String)
 
 ## Author
 
-**Nikhil Rajana**
+**Rajana Nikhil**
 
 GitHub: https://github.com/rajananikhil9
 
