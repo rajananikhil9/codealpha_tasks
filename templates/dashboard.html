@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <h2>Data System</h2>
+
+        <a href="/dashboard">📊 Dashboard</a>
+
+        <a href="/add-record">➕ Add Record</a>
+
+        <a href="/records">📋 View Records</a>
+
+        <a href="/duplicates">⚠️ Duplicates</a>
+
+        <button onclick="logout()">Logout</button>
+
+    </div>
+
+    <div class="main-content">
+
+        <h1>Admin Dashboard</h1>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Total Records</h3>
+                <h2 id="total">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Unique Records</h3>
+                <h2 id="unique">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Duplicates Blocked</h3>
+                <h2 id="duplicate">0</h2>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <h2>Add New Record</h2>
+
+        <input type="text" id="name" placeholder="Name">
+
+        <input type="email" id="email" placeholder="Email">
+
+        <input type="text" id="phone" placeholder="Phone">
+
+        <button class="submit-btn" onclick="addRecord()">
+            Add Record
+        </button>
+
+        <p id="message"></p>
+
+    </div>
+
+    <script src="/static/js/dashboard.js"></script>
+
+</body>
+
+</html>

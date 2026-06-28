@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Record</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f4f6f9;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 240px;
+            height: 100vh;
+            background: #2c3e50;
+            color: white;
+            padding-top: 20px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+            font-size: 17px;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: #3498db;
+        }
+
+        .sidebar button {
+            width: 85%;
+            margin: 30px 18px;
+            padding: 12px;
+            border: none;
+            background: #e74c3c;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .sidebar button:hover {
+            background: #c0392b;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 260px;
+            padding: 40px;
+        }
+
+        .container {
+            width: 500px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,.2);
+        }
+
+        .container h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: #3498db;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #3498db;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <h2>Data System</h2>
+
+    <a href="/dashboard">📊 Dashboard</a>
+    <a href="/add-record">➕ Add Record</a>
+    <a href="/records">📋 View Records</a>
+    <a href="/duplicates">⚠️ Duplicates</a>
+
+    <button onclick="logout()">Logout</button>
+
+</div>
+
+<div class="main-content">
+
+    <div class="container">
+
+        <h2>Add New Record</h2>
+
+        <input type="text" id="name" placeholder="Enter Name">
+
+        <input type="email" id="email" placeholder="Enter Email">
+
+        <input type="text" id="phone" placeholder="Enter Phone Number">
+
+        <button class="submit-btn" onclick="addRecord()">
+            Add Record
+        </button>
+
+        <p id="message"></p>
+
+        <a href="/dashboard" class="back-link">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+
+function logout(){
+
+    localStorage.removeItem("token");
+    window.location="/";
+
+}
+
+async function addRecord(){
+
+    const token = localStorage.getItem("token");
+
+    const response = await fetch("/api/records/add",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json",
+            "Authorization":"Bearer "+token
+        },
+
+        body:JSON.stringify({
+
+            name:document.getElementById("name").value,
+            email:document.getElementById("email").value,
+            phone:document.getElementById("phone").value
+
+        })
+
+    });
+
+    const data = await response.json();
+
+    const msg=document.getElementById("message");
+
+    if(response.ok){
+
+        msg.style.color="green";
+        msg.innerHTML=data.message;
+
+        document.getElementById("name").value="";
+        document.getElementById("email").value="";
+        document.getElementById("phone").value="";
+
+    }else{
+
+        msg.style.color="red";
+
+        let output=data.message;
+
+        if(data.similarity){
+            output+="<br><br>Similarity : "+data.similarity+"%";
+        }
+
+        if(data.existing_record){
+
+            output+="<br><br><b>Existing Record</b>";
+
+            output+="<br>Name : "+data.existing_record.name;
+            output+="<br>Email : "+data.existing_record.email;
+            output+="<br>Phone : "+data.existing_record.phone;
+
+        }
+
+        msg.innerHTML=output;
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

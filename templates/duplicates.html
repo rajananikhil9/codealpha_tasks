@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duplicate Records</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f4f6f9;
+        }
+
+        /* Sidebar */
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 240px;
+            height: 100vh;
+            background: #2c3e50;
+            color: white;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, .2);
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+            transition: .3s;
+        }
+
+        .sidebar a:hover {
+            background: #3498db;
+        }
+
+        .sidebar button {
+            width: 85%;
+            margin: 30px 18px;
+            padding: 12px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .sidebar button:hover {
+            background: #c0392b;
+        }
+
+        /* Main */
+
+        .main-content {
+            margin-left: 260px;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+
+        .refresh-btn {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .refresh-btn:hover {
+            background: #2980b9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .15);
+        }
+
+        table th {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+        }
+
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        .duplicate {
+            color: red;
+            font-weight: bold;
+        }
+
+        .falsepositive {
+            color: orange;
+            font-weight: bold;
+        }
+
+        .empty {
+            text-align: center;
+            color: #777;
+            padding: 25px;
+            font-size: 18px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <h2>Data System</h2>
+
+        <a href="/dashboard">📊 Dashboard</a>
+
+        <a href="/add-record">➕ Add Record</a>
+
+        <a href="/records">📋 View Records</a>
+
+        <a href="/duplicates">⚠️ Duplicate Records</a>
+
+        <button onclick="logout()">Logout</button>
+
+    </div>
+
+    <div class="main-content">
+
+        <h1>Duplicate & False Positive Records</h1>
+
+        <button class="refresh-btn" onclick="loadDuplicates()">
+            🔄 Refresh
+        </button>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                    <th>Created At</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="duplicateTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <script>
+
+        function logout() {
+
+            localStorage.removeItem("token");
+
+            window.location = "/";
+
+        }
+
+        async function loadDuplicates() {
+
+            try {
+
+                const response = await fetch("/api/records/rejected");
+
+                const data = await response.json();
+
+                let rows = "";
+
+                data.records.forEach(record => {
+
+                    rows += `
+    <tr>
+        <td>${record.name}</td>
+        <td>${record.email}</td>
+        <td>${record.phone}</td>
+        <td class="${record.status === 'Duplicate' ? 'duplicate' : 'falsepositive'}">
+            ${record.status}
+        </td>
+        <td>${record.created_at}</td>
+    </tr>
+    `;
+
+                });
+
+                if (rows === "") {
+
+                    rows = `
+            <tr>
+                <td colspan="5" class="empty">
+                    No Duplicate or False Positive Records Found
+                </td>
+            </tr>
+            `;
+
+                }
+
+                document.getElementById("duplicateTable").innerHTML = rows;
+
+            }
+            catch (error) {
+
+                console.error(error);
+
+                document.getElementById("duplicateTable").innerHTML = `
+        <tr>
+            <td colspan="5" class="empty">
+                Unable to load records.
+            </td>
+        </tr>
+        `;
+
+            }
+
+        }
+
+        loadDuplicates();
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Records</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,Helvetica,sans-serif;
+        }
+
+        body{
+            background:#f4f6f9;
+        }
+
+        /* Sidebar */
+
+        .sidebar{
+            position:fixed;
+            left:0;
+            top:0;
+            width:240px;
+            height:100vh;
+            background:#2c3e50;
+            color:white;
+        }
+
+        .sidebar h2{
+            text-align:center;
+            padding:20px;
+            border-bottom:1px solid rgba(255,255,255,.2);
+        }
+
+        .sidebar a{
+            display:block;
+            color:white;
+            text-decoration:none;
+            padding:15px 25px;
+            transition:.3s;
+        }
+
+        .sidebar a:hover{
+            background:#3498db;
+        }
+
+        .sidebar button{
+            width:85%;
+            margin:30px 18px;
+            padding:12px;
+            border:none;
+            border-radius:5px;
+            background:#e74c3c;
+            color:white;
+            cursor:pointer;
+        }
+
+        .sidebar button:hover{
+            background:#c0392b;
+        }
+
+        /* Main */
+
+        .main-content{
+            margin-left:260px;
+            padding:30px;
+        }
+
+        h2{
+            color:#2c3e50;
+            margin-bottom:20px;
+        }
+
+        .controls{
+            margin-bottom:20px;
+        }
+
+        input{
+            width:320px;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            margin-right:10px;
+        }
+
+        button.action{
+            padding:12px 18px;
+            border:none;
+            border-radius:5px;
+            background:#3498db;
+            color:white;
+            cursor:pointer;
+            margin-right:5px;
+        }
+
+        button.action:hover{
+            background:#2980b9;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+            box-shadow:0 5px 15px rgba(0,0,0,.15);
+        }
+
+        table th{
+            background:#2c3e50;
+            color:white;
+            padding:14px;
+        }
+
+        table td{
+            padding:12px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+        }
+
+        table tr:hover{
+            background:#f8f8f8;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <h2>Data System</h2>
+
+    <a href="/dashboard">📊 Dashboard</a>
+
+    <a href="/add-record">➕ Add Record</a>
+
+    <a href="/records">📋 View Records</a>
+
+    <a href="/duplicates">⚠️ Duplicates</a>
+
+    <button onclick="logout()">Logout</button>
+
+</div>
+
+<div class="main-content">
+
+    <h2>All Records</h2>
+
+    <div class="controls">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Search by Name, Email or Phone">
+
+        <button class="action" onclick="searchRecords()">
+            🔍 Search
+        </button>
+
+        <button class="action" onclick="loadRecords()">
+            📋 Show All
+        </button>
+
+    </div>
+
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Status</th>
+            <th>Created At</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody id="recordsTable">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<script>
+
+function logout(){
+
+    localStorage.removeItem("token");
+
+    window.location="/";
+
+}
+
+</script>
+
+<script src="/static/js/records.js"></script>
+
+</body>
+
+</html>
