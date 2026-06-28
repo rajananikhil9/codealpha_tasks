@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+
+  <link rel="stylesheet" href="/static/css/style.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+
+    {% include 'sidebar.html' %}
+    <!-- Main Content -->
+
+    <main class="content">
+      <h1>Overview</h1>
+
+      <p class="subtitle">Real-time system metrics and recent activity.</p>
+
+      <!-- Stats Cards -->
+
+      <div class="stat-card">
+        <h3>Total Revenue</h3>
+        <h2 id="totalRevenue">₹0</h2>
+      </div>
+
+      <div class="stat-card">
+        <h3>Total Users</h3>
+        <h2 id="totalUsers">0</h2>
+      </div>
+
+      <div class="stat-card">
+        <h3>Total Routes</h3>
+        <h2 id="totalRoutes">0</h2>
+      </div>
+
+      <div class="stat-card">
+        <h3>Total Passes</h3>
+        <h2 id="totalPasses">0</h2>
+      </div>
+      
+  </div>
+
+  <!-- Status -->
+
+  <h2 class="section-title">Passes Status</h2>
+
+  <div class="status-grid">
+    <div class="status-card pending">
+      <h4>Pending Review</h4>
+      <h2 id="pendingCount">0</h2>
+    </div>
+
+    <div class="stat-card">
+      <h3>Active Passes</h3>
+      <h2 id="activePasses">0</h2>
+    </div>
+
+    <div class="stat-card">
+      <h3>Expired Passes</h3>
+      <h2 id="expiredPasses">0</h2>
+    </div>
+
+    <div class="status-card rejected">
+      <h4>Rejected</h4>
+      <h2 id="rejectedCount">0</h2>
+    </div>
+  </div>
+
+  <!-- Recent Passes -->
+
+  <h2 class="section-title">Recent Passes</h2>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>PASS ID</th>
+          <th>APPLICANT</th>
+          <th>TYPE</th>
+          <th>DATE</th>
+          <th>STATUS</th>
+        </tr>
+      </thead>
+
+      <tbody id="recentPasses"></tbody>
+    </table>
+  </div>
+
+  <!-- Revenue Chart -->
+
+  <h2 class="section-title">Revenue Analytics</h2>
+
+  <div class="chart-box">
+    <canvas id="revenueChart"></canvas>
+  </div>
+  </main>
+  </div>
+
+  <script src="/static/js/dashboard.js"></script>
+</body>
+
+</html>

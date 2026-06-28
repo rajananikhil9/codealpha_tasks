@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact Authority</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="logo">🚌 Cloud Bus Pass</div>
+
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/apply">Apply Pass</a></li>
+        <li><a href="/track">Track Pass</a></li>
+        <li><a href="/verify">Verify Pass</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/login">Admin Login</a></li>
+      </ul>
+    </nav>
+
+    <div class="contact-container">
+      <h1>Contact Authority</h1>
+
+      <p class="contact-subtitle">
+        Have a question about your pass? Experiencing technical issues? Our
+        support team is here to help.
+      </p>
+
+      <div class="contact-grid">
+        <!-- Contact Info -->
+
+        <div class="contact-info">
+          <div class="info-box">
+            <h3>📍 Head Office</h3>
+
+            <p>
+              Transport Authority Office<br />
+              Jeypore, Odisha<br />
+              India
+            </p>
+          </div>
+
+          <div class="info-box">
+            <h3>📞 Helpline</h3>
+
+            <p>
+              +91 9556306160<br />
+              Mon-Sat: 9AM - 6PM
+            </p>
+          </div>
+
+          <div class="info-box">
+            <h3>✉ Email</h3>
+
+            <p>
+              support@cloudbuspass.com<br />
+              admin@cloudbuspass.com
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+
+        <div class="contact-form-card">
+          <h2>Send us a message</h2>
+
+          <form id="contactForm">
+            <div class="form-row">
+              <div>
+                <label>Full Name</label>
+                <input type="text" id="contactName" placeholder="John Doe" />
+              </div>
+
+              <div>
+                <label>Email Address</label>
+                <input
+                  type="email"
+                  id="contactEmail"
+                  placeholder="john@example.com"
+                />
+              </div>
+            </div>
+
+            <label>Your Message</label>
+
+            <textarea
+              id="contactMessage"
+              placeholder="How can we help you?"
+            ></textarea>
+
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          alert("Message Sent Successfully!");
+
+          this.reset();
+        });
+    </script>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <h3>Cloud Bus Pass System</h3>
+
+        <p class="footer-tagline">
+          Secure Digital Transit Pass Management Platform
+        </p>
+
+        <div class="footer-contact">
+          <span>📞 9556306160</span>
+          <span>|</span>
+          <span>✉ support@cloudbuspass.com</span>
+        </div>
+
+        <p class="footer-copy">© 2026 Cloud Bus Pass System</p>
+      </div>
+    </footer>
+  </body>
+</html>

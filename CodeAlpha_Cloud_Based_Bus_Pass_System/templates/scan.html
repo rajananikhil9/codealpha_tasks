@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <title>QR Verification</title>
+
+    <script src="https://unpkg.com/html5-qrcode"></script>
+
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+
+  <body>
+    <h1>QR Pass Verification</h1>
+
+    <div id="reader"></div>
+
+    <div id="result"></div>
+
+    <script>
+      function onScanSuccess(decodedText) {
+        verifyPass(decodedText);
+      }
+
+      let html5QrCode = new Html5QrcodeScanner("reader", {
+        fps: 10,
+        qrbox: 250,
+      });
+
+      html5QrCode.render(onScanSuccess);
+
+      async function verifyPass(passId) {
+        const response = await fetch("/api/verify/" + passId);
+
+        const data = await response.json();
+
+        document.getElementById("result").innerHTML = `
+
+    <div class="verify-card">
+
+        <h2>
+            ${data.status}
+        </h2>
+
+        <p>
+            ${data.name}
+        </p>
+
+        <p>
+            ${data.route}
+        </p>
+
+    </div>
+
+    `;
+      }
+    </script>
+  </body>
+</html>

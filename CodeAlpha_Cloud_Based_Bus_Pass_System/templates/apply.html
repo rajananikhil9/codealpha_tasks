@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Apply for Digital Pass</title>
+
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="logo">🚌 Cloud Bus Pass</div>
+
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/apply">Apply Pass</a></li>
+        <li><a href="/track">Track Pass</a></li>
+        <li><a href="/verify">Verify Pass</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/login">Admin Login</a></li>
+      </ul>
+    </nav>
+
+    <div class="apply-container">
+      <h1>Apply for Digital Pass</h1>
+
+      <p class="subtitle">
+        Fill out the form below to apply for a new transit pass.
+      </p>
+
+      <form id="passForm">
+        <div class="top-grid">
+          <div class="card">
+            <h2>Personal Information</h2>
+
+            <div class="grid-2">
+              <div>
+                <label>Full Name</label>
+                <input type="text" id="name" required />
+              </div>
+
+              <div>
+                <label>Email Address</label>
+                <input type="email" id="email" required />
+              </div>
+
+              <div>
+                <label>Mobile Number</label>
+                <input type="text" id="mobile" required />
+              </div>
+
+              <div>
+                <label>Aadhaar Number</label>
+                <input type="text" id="aadhaar" />
+              </div>
+
+              <div>
+                <label>Gender</label>
+
+                <select id="gender">
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label>Date of Birth</label>
+
+                <input type="date" id="dob" />
+              </div>
+            </div>
+
+            <label>Residential Address</label>
+
+            <textarea id="address" rows="4"></textarea>
+
+            <label>Applicant Category</label>
+
+            <select id="category">
+              <option>General Public</option>
+              <option>Student</option>
+              <option>Employee</option>
+              <option>Senior Citizen</option>
+            </select>
+          </div>
+
+          <div class="fare-card">
+            <h2>Fare Summary</h2>
+
+            <div class="fare-row">
+              <span>Base Fare</span>
+              <span id="baseFare">₹0</span>
+            </div>
+
+            <div class="fare-row">
+              <span>Service Fee</span>
+              <span id="serviceFee">₹20</span>
+            </div>
+
+            <hr />
+
+            <div class="fare-total">
+              <span>Total Amount</span>
+              <span id="totalFare">₹20</span>
+            </div>
+
+            <button type="submit" id="submitBtn">Submit Application</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Route & Pass Selection</h2>
+
+          <div class="grid-2">
+            <div>
+              <label>Select Route</label>
+
+              <select id="route" required>
+                <option value="">Loading Routes...</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Pass Validity</label>
+
+              <select id="validity">
+                <option>Monthly</option>
+                <option>Quarterly</option>
+                <option>Half Yearly</option>
+                <option>Yearly</option>
+              </select>
+            </div>
+          </div>
+
+          <label>Service Type</label>
+
+          <select id="serviceType">
+            <option>Ordinary</option>
+            <option>Express</option>
+            <option>Deluxe</option>
+          </select>
+        </div>
+      </form>
+
+      <br />
+
+      <div id="result"></div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <h3>Cloud Bus Pass System</h3>
+
+        <p class="footer-tagline">
+          Secure Digital Transit Pass Management Platform
+        </p>
+
+        <div class="footer-contact">
+          <span>📞 9556306160</span>
+          <span>|</span>
+          <span>✉ support@cloudbuspass.com</span>
+        </div>
+
+        <p class="footer-copy">© 2026 Cloud Bus Pass System</p>
+      </div>
+    </footer>
+
+    <script src="/static/js/script.js"></script>
+  </body>
+</html>

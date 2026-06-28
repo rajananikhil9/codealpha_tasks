@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routes Management</title>
+
+    <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    {% include 'sidebar.html' %}
+
+    <main class="content">
+
+        <h1>Routes Management</h1>
+
+        <div class="card">
+
+            <h3>Add New Route</h3>
+
+            <input
+                type="text"
+                id="routeName"
+                placeholder="Route Name"
+            >
+
+            <input
+                type="text"
+                id="source"
+                placeholder="Source"
+            >
+
+            <input
+                type="text"
+                id="destination"
+                placeholder="Destination"
+            >
+
+            <input
+                type="number"
+                id="distance"
+                placeholder="Distance (KM)"
+            >
+
+            <input
+                type="number"
+                id="dailyFare"
+                placeholder="Daily Fare"
+            >
+
+            <input
+                type="number"
+                id="weeklyFare"
+                placeholder="Weekly Fare"
+            >
+
+            <input
+                type="number"
+                id="monthlyFare"
+                placeholder="Monthly Fare"
+            >
+
+            <button onclick="addRoute()">
+                Add Route
+            </button>
+
+        </div>
+
+        <br>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Route</th>
+                        <th>Source</th>
+                        <th>Destination</th>
+                        <th>Distance</th>
+                        <th>Daily</th>
+                        <th>Weekly</th>
+                        <th>Monthly</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="routeTable"></tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="/static/js/routes.js"></script>
+
+</body>
+</html>
+
